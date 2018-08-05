@@ -1,8 +1,10 @@
+import java.util.Objects;
+
 public class Ship {
-    // Task 3
+    // Task 2
     SteamEngine steamEngine;
 
-    public SteamEngine creatingShipEngine(String s) { // как сюда передавать имя нового объекта SteamEngine?
+    public SteamEngine creatingShipEngine(String s) {
         return new SteamEngine(s);
     }
 
@@ -33,4 +35,24 @@ public class Ship {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ship ship = (Ship) o;
+        return Objects.equals(steamEngine, ship.steamEngine);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(steamEngine);
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "steamEngine=" + steamEngine +
+                '}';
+    }
 }

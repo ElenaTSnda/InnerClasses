@@ -31,7 +31,7 @@ public class Airplane {
 
         private String identifier;
         private int yearOfProduction;
-        private boolean systemIsWorking = true; // или лучше вынести в конструктор?
+        private boolean systemIsWorking = true;
 
         public AirplaneEngine(String identifier, int yearOfProduction) {
 
@@ -50,14 +50,12 @@ public class Airplane {
 
         @Override
         public void fly() {
-            if(fuelCapacity >= 300) {
-                System.out.println("Starting flying.");
-            } else {
+            if(fuelCapacity < 300) {
                 System.out.println("Fuel tank is almost empty. Attention, refueling is needed.");
-            }
-            int refueling = addSomeFuel(200);
-            if(refueling >= 300){
-                System.out.println("The plane was successfully refueled and ready to fly.");
+                int refueling = addSomeFuel(200);
+                System.out.println("The tank was successfully refueled for " + refueling + "l of fuel and is ready to fly.");
+            } else {
+                System.out.println("Starting flying.");
             }
         }
 
@@ -102,5 +100,15 @@ public class Airplane {
     public int hashCode() {
 
         return Objects.hash(name, engines, systemIsChecked, fuelCapacity);
+    }
+
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "name='" + name + '\'' +
+                ", engines=" + engines +
+                ", systemIsChecked=" + systemIsChecked +
+                ", fuelCapacity=" + fuelCapacity +
+                '}';
     }
 }

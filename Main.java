@@ -19,7 +19,7 @@ public class Main {
         airplaneEngine.stop();
         System.out.println(" ");
 
-        System.out.println("Task 2"); // закрытый private или protected?
+        System.out.println("Task 2");
         Ship ship = new Ship();
         System.out.println(ship.creatingShipEngine("7q938w")); // WTF
         System.out.println(" ");
