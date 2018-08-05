@@ -32,9 +32,10 @@ public class Main {
         System.out.println(" ");
 
         System.out.println("Task 4");
-
-
-
+        IEngine electricCarEngine = Car.creatingElectricCarEngine();
+        electricCarEngine.start();
+        electricCarEngine.fly();
+        electricCarEngine.stop();
 
     }
 }
